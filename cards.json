@@ -1,0 +1,180 @@
+{
+    "cards": [
+        {
+        "title": "",
+        "description": "Call one number: you have 3 tries to roll a die and do that number, if you do advance one space"
+        },
+        {
+        "title": "",
+        "description": "Call one number: you have 3 tries to roll a die and do that number, if you do advance one space"
+        },
+        {
+        "title": "",
+        "description": "Call one number: you have 3 tries to roll a die and do that number, if you do advance one space"
+        },
+        {
+        "title": "Choose",
+        "description": "Advance one space, or gain one sheep"
+        },
+        {
+        "title": "Choose",
+        "description": "Advance one space, or gain one sheep"
+        },
+        {
+        "title": "Choose",
+        "description": "Advance one space, or gain one sheep"
+        },
+        {
+        "title": "Choose",
+        "description": "Go back one space, or sacrifice one sheep"
+        },
+        {
+        "title": "Choose",
+        "description": "Go back one space, or sacrifice one sheep"
+        },
+        {
+        "title": "Choose",
+        "description": "Go back one space, or sacrifice one sheep"
+        },
+        {
+        "title": "Choose",
+        "description": "Advance one space, or gain one sheep"
+        },
+        {
+        "title": "",
+        "description": "Advance one space"
+        },
+        {
+        "title": "",
+        "description": "Advance one space"
+        },
+        {
+        "title": "",
+        "description": "Advance one space"
+        },
+        {
+        "title": "",
+        "description": "Advance one space"
+        },
+        {
+        "title": "",
+        "description": "Go back one space"
+        },
+        {
+        "title": "",
+        "description": "Go back one space"
+        },
+        {
+        "title": "",
+        "description": "Go back one space"
+        },
+        {
+        "title": "",
+        "description": "Go back one space"
+        },
+        {
+        "title": "Relationsheep",
+        "description": "Choose one player, when that player loses or gains one sheep you lose or gain one sheep too"
+        },
+        {
+        "title": "Relationsheep",
+        "description": "Choose one player, when that player loses or gains one sheep you lose or gain one sheep too"
+        },
+        {
+        "title": "Leadersheep",
+        "description": "Challange a player for a battle-sheep, but half of your sheep are at stake"
+        },
+        {
+        "title": "Leadersheep",
+        "description": "Challange a player for a battle-sheep, but half of your sheep are at stake"
+        },
+        {
+        "title": "Worsheep",
+        "description": "At the beginning of each round roll a die, if you do 3 you gain one sheep"
+        },
+        {
+        "title": "Worsheep",
+        "description": "At the beginning of each round roll a die, if you do 3 you gain one sheep"
+        },
+        {
+        "title": "Worsheep",
+        "description": "At the beginning of each round roll a die, if you do 3 you gain one sheep"
+        },
+        {
+        "title": "Worsheep",
+        "description": "At the beginning of each round roll a die, if you do 3 you gain one sheep"
+        },
+        {
+        "title": "Gamblesheep",
+        "description": "Call a number, roll a dice, if you do the number you called advance one space. If you fail you can try again, but this time you will advance two spaces or go back one"
+        },
+        {
+        "title": "Gamblesheep",
+        "description": "Call a number, roll a dice, if you do the number you called advance one space. If you fail you can try again, but this time you will advance two spaces or go back one"
+        },
+        {
+        "title": "Gamblesheep",
+        "description": "Call a number, roll a dice, if you do the number you called advance one space. If you fail you can try again, but this time you will advance two spaces or go back one"
+        },
+        {
+        "title": "WOLF",
+        "description": "A hungry wolf eats 3 of your sheep"
+        },
+        {
+        "title": "WOLF",
+        "description": "A hungry wolf eats 3 of your sheep"
+        },
+        {
+        "title": "WOLF",
+        "description": "A hungry wolf eats 3 of your sheep"
+        },
+        {
+        "title": "Sheep adoption",
+        "description": "You gain one sheep"
+        },
+        {
+        "title": "Sheep adoption",
+        "description": "You gain one sheep"
+        },
+        {
+        "title": "Sheep adoption",
+        "description": "You gain one sheep"
+        },
+        {
+        "title": "Sheep adoption",
+        "description": "You gain one sheep"
+        },
+        {
+        "title": "Sheep adoption",
+        "description": "You gain one sheep"
+        },
+        {
+        "title": "Odd or Even",
+        "description": "Declare odd or even, roll a die, if you do what you declared advance one space"
+        },
+        {
+        "title": "Odd or Even",
+        "description": "Declare odd or even, roll a die, if you do what you declared advance one space"
+        },
+        {
+        "title": "Battlesheep",
+        "description": "Challange a player in your zone in a battlesheep, if there are no player in your zone your turn ends here"
+        },
+        {
+        "title": "Battlesheep",
+        "description": "Challange a player in your zone in a battlesheep, if there are no player in your zone your turn ends here"
+        },
+        {
+        "title": "Battlesheep",
+        "description": "Challange a player in your zone in a battlesheep, if there are no player in your zone your turn ends here"
+        },
+        {
+        "title": "Sheep shuttle",
+        "description": "Jump forward 3 spaces"
+        },
+        {
+        "title": "Sheep shuttle",
+        "description": "Jump forward 3 spaces"
+        }
+    ]
+}
