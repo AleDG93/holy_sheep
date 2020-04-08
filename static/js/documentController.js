@@ -1,5 +1,6 @@
 var {Player} = require('../../entities/player');
 var {Card} = require('../../entities/card');
+var {Heaven} = require('../../entities/heaven');
 var file = require('../../cards.json');
 
 class DocumentController {
@@ -33,19 +34,36 @@ class DocumentController {
     goForward(playerId, gameDocument){
         var newPlayer = gameDocument.data.players[playerId];
         newPlayer.position = newPlayer.position + 1;
-        console.log(newPlayer);
         gameDocument.submitOp([{p:['players', playerId], ld: gameDocument.data.players[playerId], li: newPlayer}]);
     }
     getRelationSheep(playerId, gameDocument){
+        var newPlayer = gameDocument.data.players[playerId];
+        newPlayer.gadget.push('relation');
+        gameDocument.submitOp([{p:['players', playerId], ld: gameDocument.data.players[playerId], li: newPlayer}]);
         
     }
     getWorSheep(playerId, gameDocument){
-        
+
+        var newPlayer = gameDocument.data.players[playerId];
+        newPlayer.gadget.push('worsheep');
+        gameDocument.submitOp([{p:['players', playerId], ld: gameDocument.data.players[playerId], li: newPlayer}]);
     }
+
     loseRelationSheep(playerId, gameDocument){
         
+        var newPlayer = gameDocument.data.players[playerId];
+        var newGadgets = newPlayer.gadget.filter(e => e !== 'relation');
+        newPlayer.gadget = newGadgets;
+        gameDocument.submitOp([{p:['players', playerId], ld: gameDocument.data.players[playerId], li: newPlayer}]);
     }
+
     loseWorSheep(playerId, gameDocument){
+
+        var newPlayer = gameDocument.data.players[playerId];
+        var newGadgets = newPlayer.gadget.filter(e => e !== 'worsheep');
+        newPlayer.gadget = newGadgets;
+        gameDocument.submitOp([{p:['players', playerId], ld: gameDocument.data.players[playerId], li: newPlayer}]);
+
     }
 
     /***********************************************************************
@@ -71,6 +89,18 @@ class DocumentController {
         gameDocument.submitOp([{p:['prevDice'], na: result}]);
     }
 
+    throwDice(playerId, gameDocument){
+
+
+        
+        var result1 = (Math.floor(Math.random() * 6) + 1);  // returns a random integer from 1 to 6
+        var result2 = (Math.floor(Math.random() * 6) + 1);  // returns a random integer from 1 to 6
+
+        var newHeaven = new Heaven(result1, result2, gameDocument.data.heaven[0].players);
+        newHeaven.players[playerId] = (result1 + result2);
+        gameDocument.submitOp([{p:['heaven', 0], ld: gameDocument.data.heaven[0], li: newHeaven}]);  
+    }
+
     shuffleDeck(gameDocument){
         var listOfCards = this.shuffle(file.cards);
         
@@ -78,8 +108,6 @@ class DocumentController {
             var newCard = new Card(card.title, card.description);
             gameDocument.submitOp([{p:['cards', 0], li: newCard}]);    
         });
-
- 
     }
 
     drawCard(gameDocument){

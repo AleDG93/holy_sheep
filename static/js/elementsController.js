@@ -13,7 +13,12 @@ class ElementsController {
          * Roll and set results to die
          */
         this.rollDie(data.prevDice);
-
+        /**
+         * Apply changes to heaven dice and roll dice
+         */
+        if(data.heaven[0].die1 > 0){
+            this.rollDice(data.heaven[0].die1, data.heaven[0].die2);
+        }
 
         /**
          * Apply changes to cards text area
@@ -49,12 +54,49 @@ class ElementsController {
         var colspan = Math.floor(12 / data.players.length);
         
         data.players.forEach(player => {
-            console.log(player)
+            
             var colDiv = document.createElement('div');
             colDiv.setAttribute('class', 'col-' + colspan);
             colDiv.setAttribute('id', player.id);
 
-            // Create first row with button
+            // Create icons row
+            var iconRow = document.createElement('div');
+            iconRow.setAttribute('class', 'row icon-row');
+
+            if(data.heaven[0].players[player.id] > 0){
+                var h4heaven = document.createElement('label');
+                h4heaven.setAttribute('class', 'label-player');
+                h4heaven.innerHTML = data.heaven[0].players[player.id];
+                iconRow.appendChild(h4heaven);
+            }
+
+            var heartImg = document.createElement('img');
+            heartImg.setAttribute('src', '/images/heart.png');
+            heartImg.setAttribute('class', 'icon-image');
+
+            heartImg.style.visibility = "hidden";
+
+            var worsheepImg = document.createElement('img');
+            worsheepImg.setAttribute('src', '/images/worsheep.png');
+            worsheepImg.setAttribute('class', 'icon-image');
+            worsheepImg.style.visibility = "hidden";
+            
+            player.gadget.forEach(el => {
+                if(el == 'relation'){
+                    heartImg.style.visibility = "visible";
+                } else if (el == 'worsheep') {
+                    worsheepImg.style.visibility = "visible";
+                }
+            })
+
+            // Append images to iconRow
+            iconRow.appendChild(heartImg);
+            iconRow.appendChild(worsheepImg);
+
+            // Append icon row to colDiv
+            colDiv.appendChild(iconRow);
+
+            // Create first row with names
             var rowDiv1 = document.createElement('div');
             rowDiv1.setAttribute('class', 'row');
             // Create button
@@ -77,27 +119,94 @@ class ElementsController {
             // Create map wrapper
             var wrapperDiv = document.createElement('div');
             wrapperDiv.setAttribute('class', 'map-wrapper');
+            if (player.position < 30){
 
-            // Create map
-            for(var i = 0; i < 10; i++){
+                // Create normal map
+                for(var i = 0; i < 10; i++){
+                            
 
-                // Create player "pawn"
-                var circleDiv = document.createElement('div');
-                circleDiv.setAttribute('class', 'map-circle');
-                var mapText = document.createElement('h5');
-                mapText.setAttribute('class', 'map-text');
-                if(i == player.position){
-                    mapText.innerHTML = player.numOfSheep;
+                    // Create player "pawn"
+                    var circleDiv = document.createElement('div');
+                    circleDiv.setAttribute('class', 'map-circle');
+                    var mapText = document.createElement('h5');
+                    mapText.setAttribute('class', 'map-text');
+                    if(i == player.position % 10){
+                        // Create sheep image
+                        var sheepImg = document.createElement('img');
+                        sheepImg.setAttribute('src', '/images/sheep.png')
+                        sheepImg.setAttribute('class', 'sheep-image');
+                        circleDiv.appendChild(sheepImg);
+                        mapText.innerHTML = player.numOfSheep;
+                    }
+                    var verticalDiv = document.createElement('div');
+                    verticalDiv.setAttribute('class', 'vertical-line');
+                    if(player.position < 10){
+                        verticalDiv.style.backgroundColor = '#FF4605';
+                        circleDiv.style.backgroundColor = '#FF4605';
+                    } else if(player.position >= 10 && player.position < 20){
+                        verticalDiv.style.backgroundColor = '#70483C';
+                        circleDiv.style.backgroundColor = '#70483C';
+                    } else if(player.position >= 20 && player.position < 30){
+                        verticalDiv.style.backgroundColor = '#00FFFF';
+                        circleDiv.style.backgroundColor = '#00FFFF';
+                    }
+                    // Append player "pawn" to map wrapper
+                    circleDiv.appendChild(mapText);
+                    wrapperDiv.appendChild(circleDiv);
+                    wrapperDiv.appendChild(verticalDiv);
                 }
-                var verticalDiv = document.createElement('div');
-                verticalDiv.setAttribute('class', 'vertical-line');
+            } else {
+            
+                var hDiceButton = document.getElementById('heaven-roll');
+                var hDice = document.getElementById('heaven-dice');
+                hDiceButton.style.display = 'grid';
+                hDice.style.display = 'grid';
 
-                // Append player "pawn" to map wrapper
-                circleDiv.appendChild(mapText);
-                wrapperDiv.appendChild(circleDiv);
-                wrapperDiv.appendChild(verticalDiv);
+                // Create heaven
+                for(var i = 0; i < 5; i++){
+                            
+
+                    // Create player "pawn"
+                    var circleDiv = document.createElement('div');
+                    circleDiv.setAttribute('class', 'map-circle');
+                    var mapText = document.createElement('h5');
+                    mapText.setAttribute('class', 'map-text');
+
+                    switch(i){
+                        case 1:
+                            circleDiv.setAttribute('data-tooltip', 'Choose: Odd or Even');
+                        case 2:
+                            circleDiv.setAttribute('data-tooltip', 'Choose: ? < 7 or ? > 7');
+                        case 3:
+                            circleDiv.setAttribute('data-tooltip', 'Choose: ? <  by 3 or ? divisible by 4');
+                        case 4:
+                            circleDiv.setAttribute('data-tooltip', 'Choose: ? < 5 or ? = 7 or ? > 9');
+                        
+                    }
+
+
+                    if(i == player.position % 10){
+                        // Create sheep image
+                        var sheepImg = document.createElement('img');
+                        sheepImg.setAttribute('src', '/images/sheep.png')
+                        sheepImg.setAttribute('class', 'sheep-image');
+                        circleDiv.appendChild(sheepImg);
+                        mapText.innerHTML = player.numOfSheep;
+                    }
+                    var verticalDiv = document.createElement('div');
+                    verticalDiv.setAttribute('class', 'vertical-line');
+
+                    verticalDiv.style.background = 'radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%)';
+                    circleDiv.style.background = 'radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%)';
+
+                    // Append player "pawn" to map wrapper
+                    circleDiv.appendChild(mapText);
+                    wrapperDiv.appendChild(circleDiv);
+                    if(i!==4){
+                        wrapperDiv.appendChild(verticalDiv);
+                    }
+                }
             }
-
 
             // Create vertical hr
             var verticalHr = document.createElement('hr');
@@ -114,11 +223,23 @@ class ElementsController {
             colDiv.appendChild(rowDiv1);
             colDiv.appendChild(rowDiv2);
 
-
             // Append colDiv to map-div
             mapDiv.insertBefore(colDiv, mapDiv.firstChild);
         });
     }
+
+    rollDice(num1, num2) {
+        const die1 = document.querySelector('#hdie-1');
+        const die2 = document.querySelector('#hdie-2');
+
+        this.toggleClasses(die1);
+        this.toggleClasses(die2);
+        
+        die1.dataset.roll = num1;
+        die2.dataset.roll = num2;
+        
+      }
+      
 
     rollDie(num) {
         const die = document.getElementById("die-1");

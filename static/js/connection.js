@@ -1,6 +1,5 @@
 var ReconnectingWebSocket = require('reconnecting-websocket');
 var sharedb = require('sharedb/lib/client');
-var {Player} = require('../../entities/player')
 var {DocumentController} = require('./documentController');
 var {ElementsController} = require('./elementsController');
 
@@ -39,12 +38,22 @@ function requestManager(input){
         documentController.goForward(playerId, gameDoc);
     } else if(input == 'throwDie'){
         documentController.throwDie(gameDoc);
+    } else if(input == 'throwDice'){
+        documentController.throwDice(playerId, gameDoc);
     } else if(input == 'selectedHigher'){
         documentController.selectedHigher(gameDoc);
     } else if(input == 'selectedLower'){
         documentController.selectedLower(gameDoc);
     } else if(input == 'drawCard'){
         documentController.drawCard(gameDoc);
+    } else if(input == 'loseRelationsheep'){
+        documentController.loseRelationSheep(playerId, gameDoc);
+    } else if(input == 'getRelationsheep'){
+        documentController.getRelationSheep(playerId, gameDoc);
+    } else if(input == 'loseWorsheep'){
+        documentController.loseWorSheep(playerId, gameDoc);
+    } else if(input == 'getWorsheep'){
+        documentController.getWorSheep(playerId, gameDoc);
     }
 }
 

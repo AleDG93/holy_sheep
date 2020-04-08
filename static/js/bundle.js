@@ -981,6 +981,18 @@ module.exports = {
     Card
 };
 },{}],6:[function(require,module,exports){
+class Heaven {
+    constructor(die1, die2, players){
+        this.die1 = die1;
+        this.die2 = die2;
+        this.players = players;
+    }
+}
+
+module.exports = {
+    Heaven
+}
+},{}],7:[function(require,module,exports){
 class Player {
     constructor(id, name, numOfSheep, position, gadget, heaven, win){
         this.id = id;
@@ -996,7 +1008,7 @@ class Player {
 module.exports = {
     Player
 }
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 (function (process,global,setImmediate){
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
@@ -6609,7 +6621,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 })));
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("timers").setImmediate)
-},{"_process":2,"timers":3}],8:[function(require,module,exports){
+},{"_process":2,"timers":3}],9:[function(require,module,exports){
 var hat = module.exports = function (bits, base) {
     if (!base) base = 16;
     if (bits === undefined) bits = 128;
@@ -6673,7 +6685,7 @@ hat.rack = function (bits, base, expandBy) {
     return fn;
 };
 
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 // These methods let you build a transform function from a transformComponent
 // function for OT types like JSON0 in which operations are lists of components
 // and transforming them requires N^2 work. I find it kind of nasty that I need
@@ -6753,7 +6765,7 @@ function bootstrapTransform(type, transformComponent, checkValidOp, append) {
   };
 };
 
-},{}],10:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 // Only the JSON type is exported, because the text type is deprecated
 // otherwise. (If you want to use it somewhere, you're welcome to pull it out
 // into a separate module that json0 can depend on).
@@ -6762,7 +6774,7 @@ module.exports = {
   type: require('./json0')
 };
 
-},{"./json0":11}],11:[function(require,module,exports){
+},{"./json0":12}],12:[function(require,module,exports){
 /*
  This is the implementation of the JSON OT type.
 
@@ -7427,7 +7439,7 @@ json.registerSubtype(text);
 module.exports = json;
 
 
-},{"./bootstrapTransform":9,"./text0":12}],12:[function(require,module,exports){
+},{"./bootstrapTransform":10,"./text0":13}],13:[function(require,module,exports){
 // DEPRECATED!
 //
 // This type works, but is not exported. Its included here because the JSON0
@@ -7685,7 +7697,7 @@ text.invert = function(op) {
 
 require('./bootstrapTransform')(text, transformComponent, checkValidOp, append);
 
-},{"./bootstrapTransform":9}],13:[function(require,module,exports){
+},{"./bootstrapTransform":10}],14:[function(require,module,exports){
 'use strict';
 
 /*! *****************************************************************************
@@ -8276,7 +8288,7 @@ var ReconnectingWebSocket = /** @class */ (function () {
 
 module.exports = ReconnectingWebSocket;
 
-},{}],14:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 (function (process){
 var Doc = require('./doc');
 var Query = require('./query');
@@ -9078,7 +9090,7 @@ Connection.prototype._handlePresenceRequest = function(error, message) {
 };
 
 }).call(this,require('_process'))
-},{"../emitter":27,"../error":28,"../logger":29,"../types":33,"../util":34,"./doc":15,"./presence/doc-presence":17,"./presence/presence":20,"./query":23,"./snapshot-request/snapshot-timestamp-request":25,"./snapshot-request/snapshot-version-request":26,"_process":2}],15:[function(require,module,exports){
+},{"../emitter":28,"../error":29,"../logger":30,"../types":34,"../util":35,"./doc":16,"./presence/doc-presence":18,"./presence/presence":21,"./query":24,"./snapshot-request/snapshot-timestamp-request":26,"./snapshot-request/snapshot-version-request":27,"_process":2}],16:[function(require,module,exports){
 (function (process){
 var emitter = require('../emitter');
 var logger = require('../logger');
@@ -10059,7 +10071,7 @@ function callEach(callbacks, err) {
 }
 
 }).call(this,require('_process'))
-},{"../emitter":27,"../error":28,"../logger":29,"../types":33,"../util":34,"_process":2}],16:[function(require,module,exports){
+},{"../emitter":28,"../error":29,"../logger":30,"../types":34,"../util":35,"_process":2}],17:[function(require,module,exports){
 exports.Connection = require('./connection');
 exports.Doc = require('./doc');
 exports.Error = require('../error');
@@ -10067,7 +10079,7 @@ exports.Query = require('./query');
 exports.types = require('../types');
 exports.logger = require('../logger');
 
-},{"../error":28,"../logger":29,"../types":33,"./connection":14,"./doc":15,"./query":23}],17:[function(require,module,exports){
+},{"../error":29,"../logger":30,"../types":34,"./connection":15,"./doc":16,"./query":24}],18:[function(require,module,exports){
 var Presence = require('./presence');
 var LocalDocPresence = require('./local-doc-presence');
 var RemoteDocPresence = require('./remote-doc-presence');
@@ -10095,7 +10107,7 @@ DocPresence.prototype._createRemotePresence = function(id) {
   return new RemoteDocPresence(this, id);
 };
 
-},{"./local-doc-presence":18,"./presence":20,"./remote-doc-presence":21}],18:[function(require,module,exports){
+},{"./local-doc-presence":19,"./presence":21,"./remote-doc-presence":22}],19:[function(require,module,exports){
 var LocalPresence = require('./local-presence');
 var ShareDBError = require('../../error');
 var ERROR_CODE = ShareDBError.CODES;
@@ -10207,7 +10219,7 @@ LocalDocPresence.prototype._message = function() {
   return message;
 };
 
-},{"../../error":28,"./local-presence":19}],19:[function(require,module,exports){
+},{"../../error":29,"./local-presence":20}],20:[function(require,module,exports){
 (function (process){
 var emitter = require('../../emitter');
 
@@ -10289,7 +10301,7 @@ LocalPresence.prototype._callbackOrEmit = function(error, callback) {
 };
 
 }).call(this,require('_process'))
-},{"../../emitter":27,"_process":2}],20:[function(require,module,exports){
+},{"../../emitter":28,"_process":2}],21:[function(require,module,exports){
 (function (process){
 var emitter = require('../../emitter');
 var LocalPresence = require('./local-presence');
@@ -10469,7 +10481,7 @@ Presence.prototype._callEachOrEmit = function(error, callbacks) {
 };
 
 }).call(this,require('_process'))
-},{"../../emitter":27,"../../util":34,"./local-presence":19,"./remote-presence":22,"_process":2,"async":7,"hat":8}],21:[function(require,module,exports){
+},{"../../emitter":28,"../../util":35,"./local-presence":20,"./remote-presence":23,"_process":2,"async":8,"hat":9}],22:[function(require,module,exports){
 var RemotePresence = require('./remote-presence');
 var ot = require('../../ot');
 
@@ -10622,7 +10634,7 @@ RemoteDocPresence.prototype._cacheOp = function(op, isOwnOp) {
   }
 };
 
-},{"../../ot":31,"./remote-presence":22}],22:[function(require,module,exports){
+},{"../../ot":32,"./remote-presence":23}],23:[function(require,module,exports){
 (function (process){
 module.exports = RemotePresence;
 function RemotePresence(presence, presenceId) {
@@ -10648,7 +10660,7 @@ RemotePresence.prototype.destroy = function(callback) {
 };
 
 }).call(this,require('_process'))
-},{"_process":2}],23:[function(require,module,exports){
+},{"_process":2}],24:[function(require,module,exports){
 (function (process){
 var emitter = require('../emitter');
 
@@ -10850,7 +10862,7 @@ Query.prototype._handleExtra = function(extra) {
 };
 
 }).call(this,require('_process'))
-},{"../emitter":27,"_process":2}],24:[function(require,module,exports){
+},{"../emitter":28,"_process":2}],25:[function(require,module,exports){
 var Snapshot = require('../../snapshot');
 var emitter = require('../../emitter');
 
@@ -10906,7 +10918,7 @@ SnapshotRequest.prototype._handleResponse = function(error, message) {
   this.callback(null, snapshot);
 };
 
-},{"../../emitter":27,"../../snapshot":32}],25:[function(require,module,exports){
+},{"../../emitter":28,"../../snapshot":33}],26:[function(require,module,exports){
 var SnapshotRequest = require('./snapshot-request');
 var util = require('../../util');
 
@@ -10934,7 +10946,7 @@ SnapshotTimestampRequest.prototype._message = function() {
   };
 };
 
-},{"../../util":34,"./snapshot-request":24}],26:[function(require,module,exports){
+},{"../../util":35,"./snapshot-request":25}],27:[function(require,module,exports){
 var SnapshotRequest = require('./snapshot-request');
 var util = require('../../util');
 
@@ -10962,7 +10974,7 @@ SnapshotVersionRequest.prototype._message = function() {
   };
 };
 
-},{"../../util":34,"./snapshot-request":24}],27:[function(require,module,exports){
+},{"../../util":35,"./snapshot-request":25}],28:[function(require,module,exports){
 var EventEmitter = require('events').EventEmitter;
 
 exports.EventEmitter = EventEmitter;
@@ -10974,7 +10986,7 @@ function mixin(Constructor) {
   }
 }
 
-},{"events":1}],28:[function(require,module,exports){
+},{"events":1}],29:[function(require,module,exports){
 function ShareDBError(code, message) {
   this.code = code;
   this.message = message || '';
@@ -11047,12 +11059,12 @@ ShareDBError.CODES = {
 
 module.exports = ShareDBError;
 
-},{}],29:[function(require,module,exports){
+},{}],30:[function(require,module,exports){
 var Logger = require('./logger');
 var logger = new Logger();
 module.exports = logger;
 
-},{"./logger":30}],30:[function(require,module,exports){
+},{"./logger":31}],31:[function(require,module,exports){
 var SUPPORTED_METHODS = [
   'info',
   'warn',
@@ -11080,7 +11092,7 @@ Logger.prototype.setMethods = function(overrides) {
   });
 };
 
-},{}],31:[function(require,module,exports){
+},{}],32:[function(require,module,exports){
 // This contains the master OT functions for the database. They look like
 // ot-types style operational transform functions, but they're a bit different.
 // These functions understand versions and can deal with out of bound create &
@@ -11300,7 +11312,7 @@ exports.transformPresence = function(presence, op, isOwnOp) {
   presence.v++;
 };
 
-},{"./error":28,"./types":33,"./util":34}],32:[function(require,module,exports){
+},{"./error":29,"./types":34,"./util":35}],33:[function(require,module,exports){
 module.exports = Snapshot;
 function Snapshot(id, version, type, data, meta) {
   this.id = id;
@@ -11310,7 +11322,7 @@ function Snapshot(id, version, type, data, meta) {
   this.m = meta;
 }
 
-},{}],33:[function(require,module,exports){
+},{}],34:[function(require,module,exports){
 
 exports.defaultType = require('ot-json0').type;
 
@@ -11323,7 +11335,7 @@ exports.register = function(type) {
 
 exports.register(exports.defaultType);
 
-},{"ot-json0":10}],34:[function(require,module,exports){
+},{"ot-json0":11}],35:[function(require,module,exports){
 
 exports.doNothing = doNothing;
 function doNothing() {}
@@ -11393,11 +11405,10 @@ exports.supportsPresence = function(type) {
   return type && typeof type.transformPresence === 'function';
 };
 
-},{}],35:[function(require,module,exports){
+},{}],36:[function(require,module,exports){
 (function (global){
 var ReconnectingWebSocket = require('reconnecting-websocket');
 var sharedb = require('sharedb/lib/client');
-var {Player} = require('../../entities/player')
 var {DocumentController} = require('./documentController');
 var {ElementsController} = require('./elementsController');
 
@@ -11436,12 +11447,22 @@ function requestManager(input){
         documentController.goForward(playerId, gameDoc);
     } else if(input == 'throwDie'){
         documentController.throwDie(gameDoc);
+    } else if(input == 'throwDice'){
+        documentController.throwDice(playerId, gameDoc);
     } else if(input == 'selectedHigher'){
         documentController.selectedHigher(gameDoc);
     } else if(input == 'selectedLower'){
         documentController.selectedLower(gameDoc);
     } else if(input == 'drawCard'){
         documentController.drawCard(gameDoc);
+    } else if(input == 'loseRelationsheep'){
+        documentController.loseRelationSheep(playerId, gameDoc);
+    } else if(input == 'getRelationsheep'){
+        documentController.getRelationSheep(playerId, gameDoc);
+    } else if(input == 'loseWorsheep'){
+        documentController.loseWorSheep(playerId, gameDoc);
+    } else if(input == 'getWorsheep'){
+        documentController.getWorSheep(playerId, gameDoc);
     }
 }
 
@@ -11465,9 +11486,10 @@ global.requestManager = requestManager
 
 module.exports = connection
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../../entities/player":6,"./documentController":36,"./elementsController":37,"reconnecting-websocket":13,"sharedb/lib/client":16}],36:[function(require,module,exports){
+},{"./documentController":37,"./elementsController":38,"reconnecting-websocket":14,"sharedb/lib/client":17}],37:[function(require,module,exports){
 var {Player} = require('../../entities/player');
 var {Card} = require('../../entities/card');
+var {Heaven} = require('../../entities/heaven');
 var file = require('../../cards.json');
 
 class DocumentController {
@@ -11501,19 +11523,36 @@ class DocumentController {
     goForward(playerId, gameDocument){
         var newPlayer = gameDocument.data.players[playerId];
         newPlayer.position = newPlayer.position + 1;
-        console.log(newPlayer);
         gameDocument.submitOp([{p:['players', playerId], ld: gameDocument.data.players[playerId], li: newPlayer}]);
     }
     getRelationSheep(playerId, gameDocument){
+        var newPlayer = gameDocument.data.players[playerId];
+        newPlayer.gadget.push('relation');
+        gameDocument.submitOp([{p:['players', playerId], ld: gameDocument.data.players[playerId], li: newPlayer}]);
         
     }
     getWorSheep(playerId, gameDocument){
-        
+
+        var newPlayer = gameDocument.data.players[playerId];
+        newPlayer.gadget.push('worsheep');
+        gameDocument.submitOp([{p:['players', playerId], ld: gameDocument.data.players[playerId], li: newPlayer}]);
     }
+
     loseRelationSheep(playerId, gameDocument){
         
+        var newPlayer = gameDocument.data.players[playerId];
+        var newGadgets = newPlayer.gadget.filter(e => e !== 'relation');
+        newPlayer.gadget = newGadgets;
+        gameDocument.submitOp([{p:['players', playerId], ld: gameDocument.data.players[playerId], li: newPlayer}]);
     }
+
     loseWorSheep(playerId, gameDocument){
+
+        var newPlayer = gameDocument.data.players[playerId];
+        var newGadgets = newPlayer.gadget.filter(e => e !== 'worsheep');
+        newPlayer.gadget = newGadgets;
+        gameDocument.submitOp([{p:['players', playerId], ld: gameDocument.data.players[playerId], li: newPlayer}]);
+
     }
 
     /***********************************************************************
@@ -11539,6 +11578,18 @@ class DocumentController {
         gameDocument.submitOp([{p:['prevDice'], na: result}]);
     }
 
+    throwDice(playerId, gameDocument){
+
+
+        
+        var result1 = (Math.floor(Math.random() * 6) + 1);  // returns a random integer from 1 to 6
+        var result2 = (Math.floor(Math.random() * 6) + 1);  // returns a random integer from 1 to 6
+
+        var newHeaven = new Heaven(result1, result2, gameDocument.data.heaven[0].players);
+        newHeaven.players[playerId] = (result1 + result2);
+        gameDocument.submitOp([{p:['heaven', 0], ld: gameDocument.data.heaven[0], li: newHeaven}]);  
+    }
+
     shuffleDeck(gameDocument){
         var listOfCards = this.shuffle(file.cards);
         
@@ -11546,8 +11597,6 @@ class DocumentController {
             var newCard = new Card(card.title, card.description);
             gameDocument.submitOp([{p:['cards', 0], li: newCard}]);    
         });
-
- 
     }
 
     drawCard(gameDocument){
@@ -11581,7 +11630,7 @@ class DocumentController {
 }
 
 module.exports = {DocumentController}
-},{"../../cards.json":4,"../../entities/card":5,"../../entities/player":6}],37:[function(require,module,exports){
+},{"../../cards.json":4,"../../entities/card":5,"../../entities/heaven":6,"../../entities/player":7}],38:[function(require,module,exports){
 class ElementsController {
 
 
@@ -11597,7 +11646,12 @@ class ElementsController {
          * Roll and set results to die
          */
         this.rollDie(data.prevDice);
-
+        /**
+         * Apply changes to heaven dice and roll dice
+         */
+        if(data.heaven[0].die1 > 0){
+            this.rollDice(data.heaven[0].die1, data.heaven[0].die2);
+        }
 
         /**
          * Apply changes to cards text area
@@ -11633,12 +11687,49 @@ class ElementsController {
         var colspan = Math.floor(12 / data.players.length);
         
         data.players.forEach(player => {
-            console.log(player)
+            
             var colDiv = document.createElement('div');
             colDiv.setAttribute('class', 'col-' + colspan);
             colDiv.setAttribute('id', player.id);
 
-            // Create first row with button
+            // Create icons row
+            var iconRow = document.createElement('div');
+            iconRow.setAttribute('class', 'row icon-row');
+
+            if(data.heaven[0].players[player.id] > 0){
+                var h4heaven = document.createElement('label');
+                h4heaven.setAttribute('class', 'label-player');
+                h4heaven.innerHTML = data.heaven[0].players[player.id];
+                iconRow.appendChild(h4heaven);
+            }
+
+            var heartImg = document.createElement('img');
+            heartImg.setAttribute('src', '/images/heart.png');
+            heartImg.setAttribute('class', 'icon-image');
+
+            heartImg.style.visibility = "hidden";
+
+            var worsheepImg = document.createElement('img');
+            worsheepImg.setAttribute('src', '/images/worsheep.png');
+            worsheepImg.setAttribute('class', 'icon-image');
+            worsheepImg.style.visibility = "hidden";
+            
+            player.gadget.forEach(el => {
+                if(el == 'relation'){
+                    heartImg.style.visibility = "visible";
+                } else if (el == 'worsheep') {
+                    worsheepImg.style.visibility = "visible";
+                }
+            })
+
+            // Append images to iconRow
+            iconRow.appendChild(heartImg);
+            iconRow.appendChild(worsheepImg);
+
+            // Append icon row to colDiv
+            colDiv.appendChild(iconRow);
+
+            // Create first row with names
             var rowDiv1 = document.createElement('div');
             rowDiv1.setAttribute('class', 'row');
             // Create button
@@ -11661,27 +11752,94 @@ class ElementsController {
             // Create map wrapper
             var wrapperDiv = document.createElement('div');
             wrapperDiv.setAttribute('class', 'map-wrapper');
+            if (player.position < 30){
 
-            // Create map
-            for(var i = 0; i < 10; i++){
+                // Create normal map
+                for(var i = 0; i < 10; i++){
+                            
 
-                // Create player "pawn"
-                var circleDiv = document.createElement('div');
-                circleDiv.setAttribute('class', 'map-circle');
-                var mapText = document.createElement('h5');
-                mapText.setAttribute('class', 'map-text');
-                if(i == player.position){
-                    mapText.innerHTML = player.numOfSheep;
+                    // Create player "pawn"
+                    var circleDiv = document.createElement('div');
+                    circleDiv.setAttribute('class', 'map-circle');
+                    var mapText = document.createElement('h5');
+                    mapText.setAttribute('class', 'map-text');
+                    if(i == player.position % 10){
+                        // Create sheep image
+                        var sheepImg = document.createElement('img');
+                        sheepImg.setAttribute('src', '/images/sheep.png')
+                        sheepImg.setAttribute('class', 'sheep-image');
+                        circleDiv.appendChild(sheepImg);
+                        mapText.innerHTML = player.numOfSheep;
+                    }
+                    var verticalDiv = document.createElement('div');
+                    verticalDiv.setAttribute('class', 'vertical-line');
+                    if(player.position < 10){
+                        verticalDiv.style.backgroundColor = '#FF4605';
+                        circleDiv.style.backgroundColor = '#FF4605';
+                    } else if(player.position >= 10 && player.position < 20){
+                        verticalDiv.style.backgroundColor = '#70483C';
+                        circleDiv.style.backgroundColor = '#70483C';
+                    } else if(player.position >= 20 && player.position < 30){
+                        verticalDiv.style.backgroundColor = '#00FFFF';
+                        circleDiv.style.backgroundColor = '#00FFFF';
+                    }
+                    // Append player "pawn" to map wrapper
+                    circleDiv.appendChild(mapText);
+                    wrapperDiv.appendChild(circleDiv);
+                    wrapperDiv.appendChild(verticalDiv);
                 }
-                var verticalDiv = document.createElement('div');
-                verticalDiv.setAttribute('class', 'vertical-line');
+            } else {
+            
+                var hDiceButton = document.getElementById('heaven-roll');
+                var hDice = document.getElementById('heaven-dice');
+                hDiceButton.style.display = 'grid';
+                hDice.style.display = 'grid';
 
-                // Append player "pawn" to map wrapper
-                circleDiv.appendChild(mapText);
-                wrapperDiv.appendChild(circleDiv);
-                wrapperDiv.appendChild(verticalDiv);
+                // Create heaven
+                for(var i = 0; i < 5; i++){
+                            
+
+                    // Create player "pawn"
+                    var circleDiv = document.createElement('div');
+                    circleDiv.setAttribute('class', 'map-circle');
+                    var mapText = document.createElement('h5');
+                    mapText.setAttribute('class', 'map-text');
+
+                    switch(i){
+                        case 1:
+                            circleDiv.setAttribute('data-tooltip', 'Choose: Odd or Even');
+                        case 2:
+                            circleDiv.setAttribute('data-tooltip', 'Choose: ? < 7 or ? > 7');
+                        case 3:
+                            circleDiv.setAttribute('data-tooltip', 'Choose: ? <  by 3 or ? divisible by 4');
+                        case 4:
+                            circleDiv.setAttribute('data-tooltip', 'Choose: ? < 5 or ? = 7 or ? > 9');
+                        
+                    }
+
+
+                    if(i == player.position % 10){
+                        // Create sheep image
+                        var sheepImg = document.createElement('img');
+                        sheepImg.setAttribute('src', '/images/sheep.png')
+                        sheepImg.setAttribute('class', 'sheep-image');
+                        circleDiv.appendChild(sheepImg);
+                        mapText.innerHTML = player.numOfSheep;
+                    }
+                    var verticalDiv = document.createElement('div');
+                    verticalDiv.setAttribute('class', 'vertical-line');
+
+                    verticalDiv.style.background = 'radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%)';
+                    circleDiv.style.background = 'radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%)';
+
+                    // Append player "pawn" to map wrapper
+                    circleDiv.appendChild(mapText);
+                    wrapperDiv.appendChild(circleDiv);
+                    if(i!==4){
+                        wrapperDiv.appendChild(verticalDiv);
+                    }
+                }
             }
-
 
             // Create vertical hr
             var verticalHr = document.createElement('hr');
@@ -11698,11 +11856,23 @@ class ElementsController {
             colDiv.appendChild(rowDiv1);
             colDiv.appendChild(rowDiv2);
 
-
             // Append colDiv to map-div
             mapDiv.insertBefore(colDiv, mapDiv.firstChild);
         });
     }
+
+    rollDice(num1, num2) {
+        const die1 = document.querySelector('#hdie-1');
+        const die2 = document.querySelector('#hdie-2');
+
+        this.toggleClasses(die1);
+        this.toggleClasses(die2);
+        
+        die1.dataset.roll = num1;
+        die2.dataset.roll = num2;
+        
+      }
+      
 
     rollDie(num) {
         const die = document.getElementById("die-1");
@@ -11717,4 +11887,4 @@ class ElementsController {
 }
 
 module.exports = {ElementsController};
-},{}]},{},[35]);
+},{}]},{},[36]);

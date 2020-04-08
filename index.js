@@ -6,7 +6,7 @@ var path = require('path');
 var express = require('express');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
-
+var {Heaven} = require('./entities/heaven');
 var {Player} = require('./entities/player');
 
 // Start shareDB
@@ -64,13 +64,15 @@ app.post('/game', function(req, res){
         }
         if (results.length === 0){
             var doc = connection.get(gameName, '0');
-            var newPlayer = new Player(0, playerName, 10, 0, [], false, false);
+            var newPlayer = new Player(0, playerName, 10, 0, [], 0, false);
+            var heaven = new Heaven(0,0, new Array(12).fill(0));
             var game = {
                 "turn": 0,
                 "players": [newPlayer],
                 "cards": [],
                 "button": 0,
-                "prevDice": 0
+                "prevDice": 0,
+                "heaven": [heaven]
             }
             doc.create(game);
             res.cookie('game', gameName);
@@ -87,7 +89,7 @@ app.post('/game', function(req, res){
             });
             if(!wasRefresh){
                 var id = results[0].data.players.length;
-                var newPlayer = new Player(id, playerName, 10, 0, [], false, false);
+                var newPlayer = new Player(id, playerName, 10, 0, [], 0, false);
                 doc.submitOp([{p:['players', results[0].data.players.length], li: newPlayer}]);
                 res.cookie('game', gameName);
                 res.cookie('playerName', playerName);
