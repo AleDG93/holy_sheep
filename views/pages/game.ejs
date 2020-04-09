@@ -1,7 +1,13 @@
 <head>
     <%- include('../partials/head') %>
+    <script>
+        function play() {
+            var audio = new Audio('./sheep.mp3');
+            audio.play();
+        }
+    </script>
 </head>
-<div class="container main">
+<div class="containerfluid main">
     <div class="row">
         <div class="col-8">
             <div class="row" id="map-div">
@@ -163,7 +169,7 @@
             </div>
             <div class="row">
                 <div class="col-6">
-                    <button class="btn btn-success action-button" onclick="requestManager('gainSheep')">Gain Sheep</button>
+                    <button class="btn btn-success action-button" onclick="requestManager('gainSheep'); play();">Gain Sheep</button>
                 </div>
                 <div class="col-6">
                     <button class="btn btn-danger action-button" onclick="requestManager('loseSheep')">Lose Sheep</button>

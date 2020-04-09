@@ -174,14 +174,16 @@ class ElementsController {
 
                     switch(i){
                         case 1:
-                            circleDiv.setAttribute('data-tooltip', 'Choose: Odd or Even');
+                            circleDiv.setAttribute('data-tooltip', 'Odd or Even');
+                            break;
                         case 2:
-                            circleDiv.setAttribute('data-tooltip', 'Choose: ? < 7 or ? > 7');
+                            circleDiv.setAttribute('data-tooltip', '[5 | 8 | 11] or [3 | 6 | 9]');
+                            break;
                         case 3:
-                            circleDiv.setAttribute('data-tooltip', 'Choose: ? <  by 3 or ? divisible by 4');
+                            circleDiv.setAttribute('data-tooltip', '[4 | 8 | 12] or [2 | 6 | 10]');
+                            break;
                         case 4:
-                            circleDiv.setAttribute('data-tooltip', 'Choose: ? < 5 or ? = 7 or ? > 9');
-                        
+                            circleDiv.setAttribute('data-tooltip', '[7] or [double]');                  
                     }
 
 

@@ -792,16 +792,20 @@ exports.clearImmediate = typeof clearImmediate === "function" ? clearImmediate :
 module.exports={
     "cards": [
         {
-        "title": "",
-        "description": "Call one number: you have 3 tries to roll a die and do that number, if you do advance one space"
+        "title": "Call one number",
+        "description": "You have 3 tries to roll a die and do that number, if you do advance one space"
         },
         {
-        "title": "",
-        "description": "Call one number: you have 3 tries to roll a die and do that number, if you do advance one space"
+        "title": "Call one number",
+        "description": "You have 3 tries to roll a die and do that number, if you do advance one space"
         },
         {
-        "title": "",
-        "description": "Call one number: you have 3 tries to roll a die and do that number, if you do advance one space"
+        "title": "Call one number",
+        "description": "You have 3 tries to roll a die and do that number, if you do you gain one sheep"
+        },
+        {
+        "title": "Call one number",
+        "description": "You have 3 tries to roll a die and do that number, if you do you gain one sheep"
         },
         {
         "title": "Choose",
@@ -872,14 +876,22 @@ module.exports={
         "description": "Choose one player, when that player loses or gains one sheep you lose or gain one sheep too"
         },
         {
-        "title": "Leadersheep",
-        "description": "Challange a player for a battle-sheep, but half of your sheep are at stake"
+        "title": "Relationsheep",
+        "description": "Choose one player, when that player loses or gains one sheep you lose or gain one sheep too"
+        },
+        {
+        "title": "Relationsheep",
+        "description": "Choose one player, when that player loses or gains one sheep you lose or gain one sheep too"
         },
         {
         "title": "Leadersheep",
         "description": "Challange a player for a battle-sheep, but half of your sheep are at stake"
         },
         {
+        "title": "Leadersheep",
+        "description": "Challange a player for a battle-sheep, but half of your sheep are at stake"
+        },
+        {
         "title": "Worsheep",
         "description": "At the beginning of each round roll a die, if you do 3 you gain one sheep"
         },
@@ -897,7 +909,11 @@ module.exports={
         },
         {
         "title": "Gamblesheep",
-        "description": "Call a number, roll a dice, if you do the number you called advance one space. If you fail you can try again, but this time you will advance two spaces or go back one"
+        "description": "Call a number, roll a dice, if you do the number you called you gain one sheep. If you fail you can try again, but this time you will gain two sheep or lose one"
+        },
+        {
+        "title": "Gamblesheep",
+        "description": "Call a number, roll a dice, if you do the number you called you gain one sheep. If you fail you can try again, but this time you will gain two sheep or lose one"
         },
         {
         "title": "Gamblesheep",
@@ -938,6 +954,22 @@ module.exports={
         {
         "title": "Sheep adoption",
         "description": "You gain one sheep"
+        },
+        {
+        "title": "Easter card",
+        "description": "You lose one sheep"
+        },
+        {
+        "title": "Easter card",
+        "description": "You lose one sheep"
+        },
+        {
+        "title": "Easter card",
+        "description": "You lose one sheep"
+        },
+        {
+        "title": "Easter card",
+        "description": "You lose one sheep"
         },
         {
         "title": "Odd or Even",
@@ -946,6 +978,26 @@ module.exports={
         {
         "title": "Odd or Even",
         "description": "Declare odd or even, roll a die, if you do what you declared advance one space"
+        },
+        {
+        "title": "Odd or Even",
+        "description": "Declare odd or even, roll a die, if you do what you declared you gain one sheep"
+        },
+        {
+        "title": "Odd or Even",
+        "description": "Declare odd or even, roll a die, if you do what you declared you gain one sheep"
+        },
+        {
+        "title": "Battlesheep",
+        "description": "Challange a player in your zone in a battlesheep, if there are no player in your zone your turn ends here"
+        },
+        {
+        "title": "Battlesheep",
+        "description": "Challange a player in your zone in a battlesheep, if there are no player in your zone your turn ends here"
+        },
+        {
+        "title": "Battlesheep",
+        "description": "Challange a player in your zone in a battlesheep, if there are no player in your zone your turn ends here"
         },
         {
         "title": "Battlesheep",
@@ -966,6 +1018,82 @@ module.exports={
         {
         "title": "Sheep shuttle",
         "description": "Jump forward 3 spaces"
+        },
+        {
+        "title": "Selfish vs Executioner",
+        "description": "Choose, you gain one sheep or a player loses one sheep"
+        },
+        {
+        "title": "Selfish vs Executioner",
+        "description": "Choose, you gain one sheep or a player loses one sheep"
+        },
+        {
+        "title": "Selfish vs Executioner",
+        "description": "Choose, advance one space or a player goes back one space"
+        },
+        {
+        "title": "Selfish vs Executioner",
+        "description": "Choose, advance one space or a player goes back one space"
+        },
+        {
+        "title": "Square Root Battlesheep",
+        "description": "Challange a player in your zone in a square battlesheep (Square root of your sheep at stake), if there are no player in your zone your turn ends here"
+        },
+        {
+        "title": "Square Root Battlesheep",
+        "description": "Challange a player in your zone in a square battlesheep (Square root of your sheep at stake), if there are no player in your zone your turn ends here"
+        },
+        {
+        "title": "Square Root Battlesheep",
+        "description": "Challange a player in your zone in a square battlesheep (Square root of your sheep at stake), if there are no player in your zone your turn ends here"
+        },
+        {
+        "title": "Square Root Battlesheep",
+        "description": "Challange a player in your zone in a square battlesheep (Square root of your sheep at stake), if there are no player in your zone your turn ends here"
+        },
+        {
+        "title": "Sponsorsheep",
+        "description": "The player with the highest number of sheep gives you one"
+        },
+        {
+        "title": "Sponsorsheep",
+        "description": "The player with the highest number of sheep gives you one"
+        },
+        {
+        "title": "Sheeplender",
+        "description": "Give one sheep to the player with the highest number of sheep"
+        },
+        {
+        "title": "Sheeplender",
+        "description": "Give one sheep to the player with the highest number of sheep"
+        },
+        {
+        "title": "COVID-19",
+        "description": "All players lose one sheep"
+        },
+        {
+        "title": "COVID-19",
+        "description": "All players lose one sheep"
+        },
+        {
+        "title": "Herd immunity",
+        "description": "For one round all players cannot lose sheep. (Effect ends with the beginning of the next round of the player who has drawn this card)"
+        },
+        {
+        "title": "Herd immunity",
+        "description": "For one round all players cannot lose sheep. (Effect ends with the beginning of the next round of the player who has drawn this card)"
+        },
+        {
+        "title": "LOUDSHEEP!",
+        "description": "Shout SHEEP! The last player who shouts \"SHEEP\" loses one sheep"
+        },
+        {
+        "title": "LOUDSHEEP!",
+        "description": "Shout SHEEP! The last player who shouts \"SHEEP\" loses one sheep"
+        },
+        {
+        "title": "LOUDSHEEP!",
+        "description": "Shout SHEEP! The last player who shouts \"SHEEP\" loses one sheep"
         }
     ]
 }
@@ -11807,14 +11935,16 @@ class ElementsController {
 
                     switch(i){
                         case 1:
-                            circleDiv.setAttribute('data-tooltip', 'Choose: Odd or Even');
+                            circleDiv.setAttribute('data-tooltip', 'Odd or Even');
+                            break;
                         case 2:
-                            circleDiv.setAttribute('data-tooltip', 'Choose: ? < 7 or ? > 7');
+                            circleDiv.setAttribute('data-tooltip', '[5 | 8 | 11] or [3 | 6 | 9]');
+                            break;
                         case 3:
-                            circleDiv.setAttribute('data-tooltip', 'Choose: ? <  by 3 or ? divisible by 4');
+                            circleDiv.setAttribute('data-tooltip', '[4 | 8 | 12] or [2 | 6 | 10]');
+                            break;
                         case 4:
-                            circleDiv.setAttribute('data-tooltip', 'Choose: ? < 5 or ? = 7 or ? > 9');
-                        
+                            circleDiv.setAttribute('data-tooltip', '[7] or [double]');                  
                     }
 
 
