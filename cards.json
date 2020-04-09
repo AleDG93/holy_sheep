@@ -1,79 +1,75 @@
 {
     "cards": [
         {
-        "title": "Call one number",
+        "title": "Call a number",
         "description": "You have 3 tries to roll a die and do that number, if you do advance one space"
         },
         {
-        "title": "Call one number",
+        "title": "Call a number",
         "description": "You have 3 tries to roll a die and do that number, if you do advance one space"
         },
         {
-        "title": "Call one number",
+        "title": "Call a number",
         "description": "You have 3 tries to roll a die and do that number, if you do you gain one sheep"
         },
         {
-        "title": "Call one number",
+        "title": "Call a number",
         "description": "You have 3 tries to roll a die and do that number, if you do you gain one sheep"
         },
         {
-        "title": "Choose",
+        "title": "Go bigger or go further",
         "description": "Advance one space, or gain one sheep"
         },
         {
-        "title": "Choose",
+        "title": "Go bigger or go further",
         "description": "Advance one space, or gain one sheep"
         },
         {
-        "title": "Choose",
+        "title": "Go bigger or go further",
         "description": "Advance one space, or gain one sheep"
         },
         {
-        "title": "Choose",
+        "title": "Go smaller or go backward",
         "description": "Go back one space, or sacrifice one sheep"
         },
         {
-        "title": "Choose",
+        "title": "Go smaller or go backward",
         "description": "Go back one space, or sacrifice one sheep"
         },
         {
-        "title": "Choose",
+        "title": "Go smaller or go backward",
         "description": "Go back one space, or sacrifice one sheep"
         },
         {
-        "title": "Choose",
-        "description": "Advance one space, or gain one sheep"
-        },
-        {
-        "title": "",
+        "title": "Go further",
         "description": "Advance one space"
         },
         {
-        "title": "",
+        "title": "Go further",
         "description": "Advance one space"
         },
         {
-        "title": "",
+        "title": "Go further",
         "description": "Advance one space"
         },
         {
-        "title": "",
+        "title": "Go further",
         "description": "Advance one space"
         },
         {
-        "title": "",
+        "title": "Go backward",
         "description": "Go back one space"
         },
         {
-        "title": "",
+        "title": "Go backward",
         "description": "Go back one space"
         },
         {
-        "title": "",
+        "title": "Go backward",
         "description": "Go back one space"
         },
         {
-        "title": "",
+        "title": "Go backward",
         "description": "Go back one space"
         },
         {
@@ -143,10 +139,6 @@
         {
         "title": "WOLF",
         "description": "A hungry wolf eats 3 of your sheep"
-        },
-        {
-        "title": "Sheep adoption",
-        "description": "You gain one sheep"
         },
         {
         "title": "Sheep adoption",
@@ -262,19 +254,19 @@
         },
         {
         "title": "Sponsorsheep",
-        "description": "The player with the highest number of sheep gives you one"
+        "description": "The player with the biggest herd gives you one sheep, thank your sponsor! In case two or more players have or the same amount of sheep you can choose your sponsor"
         },
         {
         "title": "Sponsorsheep",
-        "description": "The player with the highest number of sheep gives you one"
+        "description": "The player with the biggest herd gives you one of his sheep, thank your sponsor! In case two or more players have or the same amount of sheep you can choose your sponsor"
         },
         {
         "title": "Sheeplender",
-        "description": "Give one sheep to the player with the highest number of sheep"
+        "description": "It's time to pay the capitalist pigs! Give one of your sheep to the player with the biggest herd"
         },
         {
         "title": "Sheeplender",
-        "description": "Give one sheep to the player with the highest number of sheep"
+        "description": "It's time to pay the capitalist pigs! Give one of your sheep to the player with the biggest herd"
         },
         {
         "title": "COVID-19",
@@ -303,6 +295,14 @@
         {
         "title": "LOUDSHEEP!",
         "description": "Shout SHEEP! The last player who shouts \"SHEEP\" loses one sheep"
+        },
+        {
+        "title": "Happy sheep day!",
+        "description": "It's your birthday, every player gives you one sheep as a gift!"
+        },
+        {
+        "title": "Happy sheep day!",
+        "description": "It's your birthday, every player gives you one sheep as a gift!"
         }
     ]
 }

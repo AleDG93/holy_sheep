@@ -18,8 +18,6 @@ gameDoc.subscribe(makeMove);
 gameDoc.on('op', makeMove);
 
 function makeMove(){
-    console.log(gameDoc)
-    //document.querySelector('#players').textContent = JSON.stringify(gameDoc.data);
     elementsController.rewriteMap(gameDoc.data);
 }
 
