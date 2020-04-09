@@ -1,9 +1,16 @@
 <head>
     <%- include('../partials/head') %>
     <script>
-        function play() {
-            var audio = new Audio('./sheep.mp3');
-            audio.play();
+        function setAudio() {
+            document.getElementById('hidden-audio').innerHTML = '1';
+        }
+
+        function dieRoll() {
+            document.getElementById('hidden-die').innerHTML = '1';
+        }
+
+        function diceRoll() {
+            document.getElementById('hidden-dice').innerHTML = '1';
         }
     </script>
 </head>
@@ -90,7 +97,8 @@
             </div>
             <div class="row" id="heaven-roll">
                 <div class="col-12">
-                    <button class="btn btn-primary action-button" type="button" id="roll-button-heaven" onclick="requestManager('throwDice')">Roll Dice</button>    
+                    <div id="hidden-dice" hidden></div>
+                    <button class="btn btn-primary action-button" type="button" id="roll-button-heaven" onclick="diceRoll();requestManager('throwDice')">Roll Dice</button>    
                 </div>
             </div>
 
@@ -135,17 +143,18 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <button class="btn btn-primary action-button" type="button" id="roll-button" onclick="requestManager('throwDie')">Roll Die</button>    
+                    <div id="hidden-die" hidden></div>
+                    <button class="btn btn-primary action-button" type="button" id="roll-button" onclick="dieRoll();requestManager('throwDie')">Roll Die</button>    
                 </div>
             </div>
-            <div class="row">
+<!--        <div class="row">
                 <div class="col-6">
                     <button class="btn btn-outline-primary higher-lower" id="higher-button" onclick="requestManager('selectedHigher')">Higher</button>
                 </div>
                 <div class="col-6">
                     <button class="btn btn-outline-primary higher-lower" id="lower-button" onclick="requestManager('selectedLower')">Lower</button>
                 </div>
-            </div>
+            </div>-->
             <div class="row">
                 <div class="col-12">
                     <button class="btn btn-primary action-button" onclick="requestManager('drawCard')">Draw Card</button>
@@ -169,7 +178,8 @@
             </div>
             <div class="row">
                 <div class="col-6">
-                    <button class="btn btn-success action-button" onclick="requestManager('gainSheep'); play();">Gain Sheep</button>
+                    <div id="hidden-audio" hidden>0</div>
+                    <button class="btn btn-success action-button" onclick="setAudio();requestManager('gainSheep');">Gain Sheep</button>
                 </div>
                 <div class="col-6">
                     <button class="btn btn-danger action-button" onclick="requestManager('loseSheep')">Lose Sheep</button>
