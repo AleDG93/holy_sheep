@@ -1,13 +1,10 @@
-class ElementsController {
+export class ElementsController {
+
+    drawCard() { }
+
+    rewriteMap(data: any) {
 
 
-    drawCard(){
-
-    }
-
-    rewriteMap(data){
-
-        
 
         /**
          * Roll and set results to die
@@ -16,7 +13,7 @@ class ElementsController {
         /**
          * Apply changes to heaven dice and roll dice
          */
-        if(data.heaven[0].die1 > 0){
+        if (data.heaven[0].die1 > 0) {
             this.rollDice(data.heaven[0].die1, data.heaven[0].die2);
         }
 
@@ -24,10 +21,10 @@ class ElementsController {
          * Apply changes to cards text area
          */
 
-        var cardTitle = document.getElementById('card-title');
-        var cardDescription = document.getElementById('card-description');
- 
-        if(data.cards[0] != null){
+        var cardTitle = document.getElementById('card-title') as any;
+        var cardDescription = document.getElementById('card-description') as any;
+
+        if (data.cards[0] != null) {
             cardTitle.innerHTML = data.cards[0].title;
             cardDescription.innerHTML = data.cards[0].description;
         }
@@ -50,12 +47,12 @@ class ElementsController {
          * Apply changes to the map
          */
 
-        var mapDiv = document.getElementById('map-div');
+        var mapDiv = document.getElementById('map-div') as any;
         mapDiv.innerHTML = '';
         var colspan = Math.floor(12 / data.players.length);
-        
-        data.players.forEach(player => {
-            
+
+        data.players.forEach((player: any) => {
+
             var colDiv = document.createElement('div');
             colDiv.setAttribute('class', 'col-' + colspan);
             colDiv.setAttribute('id', player.id);
@@ -64,7 +61,7 @@ class ElementsController {
             var iconRow = document.createElement('div');
             iconRow.setAttribute('class', 'row icon-row');
 
-            if(data.heaven[0].players[player.id] > 0){
+            if (data.heaven[0].players[player.id] > 0) {
                 var h4heaven = document.createElement('label');
                 h4heaven.setAttribute('class', 'label-player');
                 h4heaven.innerHTML = data.heaven[0].players[player.id];
@@ -81,9 +78,9 @@ class ElementsController {
             worsheepImg.setAttribute('src', '/images/worsheep.png');
             worsheepImg.setAttribute('class', 'icon-image');
             worsheepImg.style.visibility = "hidden";
-            
-            player.gadget.forEach(el => {
-                if(el == 'relation'){
+
+            player.gadget.forEach((el: any) => {
+                if (el == 'relation') {
                     heartImg.style.visibility = "visible";
                 } else if (el == 'worsheep') {
                     worsheepImg.style.visibility = "visible";
@@ -112,7 +109,7 @@ class ElementsController {
             // Create second row with map
             var rowDiv2 = document.createElement('div');
             rowDiv2.setAttribute('class', 'row');
-            
+
             // Create large dive
             var largDiv = document.createElement('div');
             largDiv.setAttribute('class', 'large-8 large-centered');
@@ -120,18 +117,18 @@ class ElementsController {
             // Create map wrapper
             var wrapperDiv = document.createElement('div');
             wrapperDiv.setAttribute('class', 'map-wrapper');
-            if (player.position < 30){
+            if (player.position < 30) {
 
                 // Create normal map
-                for(var i = 0; i < 10; i++){
-                            
+                for (var i = 0; i < 10; i++) {
+
 
                     // Create player "pawn"
                     var circleDiv = document.createElement('div');
                     circleDiv.setAttribute('class', 'map-circle');
                     var mapText = document.createElement('h5');
                     mapText.setAttribute('class', 'map-text');
-                    if(i == player.position % 10){
+                    if (i == player.position % 10) {
                         // Create sheep image
                         var sheepImg = document.createElement('img');
                         sheepImg.setAttribute('src', '/images/sheep.png')
@@ -141,13 +138,13 @@ class ElementsController {
                     }
                     var verticalDiv = document.createElement('div');
                     verticalDiv.setAttribute('class', 'vertical-line');
-                    if(player.position < 10){
+                    if (player.position < 10) {
                         verticalDiv.style.backgroundColor = '#FF4605';
                         circleDiv.style.backgroundColor = '#FF4605';
-                    } else if(player.position >= 10 && player.position < 20){
+                    } else if (player.position >= 10 && player.position < 20) {
                         verticalDiv.style.backgroundColor = '#70483C';
                         circleDiv.style.backgroundColor = '#70483C';
-                    } else if(player.position >= 20 && player.position < 30){
+                    } else if (player.position >= 20 && player.position < 30) {
                         verticalDiv.style.backgroundColor = '#00FFFF';
                         circleDiv.style.backgroundColor = '#00FFFF';
                     }
@@ -157,15 +154,15 @@ class ElementsController {
                     wrapperDiv.appendChild(verticalDiv);
                 }
             } else {
-            
-                var hDiceButton = document.getElementById('heaven-roll');
-                var hDice = document.getElementById('heaven-dice');
+
+                var hDiceButton = document.getElementById('heaven-roll') as any;
+                var hDice = document.getElementById('heaven-dice') as any;
                 hDiceButton.style.display = 'grid';
                 hDice.style.display = 'grid';
 
                 // Create heaven
-                for(var i = 0; i < 5; i++){
-                            
+                for (var i = 0; i < 5; i++) {
+
 
                     // Create player "pawn"
                     var circleDiv = document.createElement('div');
@@ -173,7 +170,7 @@ class ElementsController {
                     var mapText = document.createElement('h5');
                     mapText.setAttribute('class', 'map-text');
 
-                    switch(i){
+                    switch (i) {
                         case 1:
                             circleDiv.setAttribute('data-tooltip', 'Odd or Even');
                             break;
@@ -184,11 +181,11 @@ class ElementsController {
                             circleDiv.setAttribute('data-tooltip', '[4 | 8 | 12] or [2 | 6 | 10]');
                             break;
                         case 4:
-                            circleDiv.setAttribute('data-tooltip', '[7] or [double]');                  
+                            circleDiv.setAttribute('data-tooltip', '[7] or [double]');
                     }
 
 
-                    if(i == player.position % 10){
+                    if (i == player.position % 10) {
                         // Create sheep image
                         var sheepImg = document.createElement('img');
                         sheepImg.setAttribute('src', '/images/sheep.png')
@@ -205,7 +202,7 @@ class ElementsController {
                     // Append player "pawn" to map wrapper
                     circleDiv.appendChild(mapText);
                     wrapperDiv.appendChild(circleDiv);
-                    if(i!==4){
+                    if (i !== 4) {
                         wrapperDiv.appendChild(verticalDiv);
                     }
                 }
@@ -217,7 +214,7 @@ class ElementsController {
 
             // Append wrapper to large div
             largDiv.appendChild(wrapperDiv);
-            
+
             // Append large div and vertical hr to row
             rowDiv2.appendChild(largDiv);
             rowDiv2.appendChild(verticalHr);
@@ -231,29 +228,27 @@ class ElementsController {
         });
     }
 
-    rollDice(num1, num2) {
-        const die1 = document.querySelector('#hdie-1');
-        const die2 = document.querySelector('#hdie-2');
+    rollDice(num1: any, num2: any) {
+        const die1 = document.querySelector('#hdie-1') as any;
+        const die2 = document.querySelector('#hdie-2') as any;
 
         this.toggleClasses(die1);
         this.toggleClasses(die2);
-        
+
         die1.dataset.roll = num1;
         die2.dataset.roll = num2;
-        
-      }
-      
 
-    rollDie(num) {
-        const die = document.getElementById("die-1");
+    }
+
+
+    rollDie(num: any) {
+        const die = document.getElementById("die-1") as any;
         this.toggleClasses(die);
         die.dataset.roll = num;
     }
-      
-    toggleClasses(die) {
+
+    toggleClasses(die: any) {
         die.classList.toggle("odd-roll");
         die.classList.toggle("even-roll");
     }
 }
-
-module.exports = {ElementsController};
