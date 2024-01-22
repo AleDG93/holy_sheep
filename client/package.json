@@ -1,0 +1,41 @@
+{
+  "name": "holy_sheep",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "vue-tsc && vite build",
+    "dev": "vite",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint . --ext .ts,.js,.vue,.tsx,.jsx"
+  },
+  "keywords": [
+    "game"
+  ],
+  "author": "Alessandro Dal Gobbo",
+  "license": "ISC",
+  "dependencies": {
+    "unplugin-auto-import": "^0.17.3",
+    "unplugin-vue-components": "^0.26.0",
+    "vue": "^3.3.11"
+  },
+  "devDependencies": {
+    "@types/vue": "^2.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.19.0",
+    "@typescript-eslint/parser": "^6.19.0",
+    "@vitejs/plugin-vue": "^4.5.2",
+    "eslint": "^8.56.0",
+    "eslint-plugin-vue": "^9.20.1",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.12",
+    "vue-tsc": "^1.8.25"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AleDG93/holy_sheep.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AleDG93/holy_sheep/issues"
+  },
+  "homepage": "https://github.com/AleDG93/holy_sheep#readme",
+  "description": ""
+}
