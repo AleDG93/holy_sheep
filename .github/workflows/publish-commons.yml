@@ -1,12 +1,13 @@
-name: Release
+name: publish-commons
 
 on:
   push:
     branches:
       - main
-
+    paths:
+      - 'commons/*'
 jobs:
-  release:
+  publish:
     runs-on: ubuntu-latest
 
     steps:
