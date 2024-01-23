@@ -13,6 +13,7 @@
   ],
   "author": "Alessandro Dal Gobbo",
   "license": "ISC",
+  "private": false,
   "dependencies": {
     "lodash": "^4.17.21"
   },
