@@ -1,6 +1,11 @@
 {
+<<<<<<< HEAD
   "name": "@holy-sheep/commons",
   "version": "1.0.2",
+=======
+  "name": "@adalgobbo/commons",
+  "version": "1.0.1",
+>>>>>>> 9f5fc06 (fix: testing workflows)
   "description": "Utility package",
   "main": "index.js",
   "scripts": {
@@ -8,8 +13,7 @@
   },
   "keywords": [
     "utilities",
-    "holy_sheep",
-    "games"
+    "holy_sheep"
   ],
   "publishConfig": {
     "access": "public",
@@ -21,6 +25,7 @@
   "dependencies": {
     "lodash": "^4.17.21"
   },
+  "homepage": "https://github.com/AleDG93/holy_sheep",
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/exec": "^6.0.3",
