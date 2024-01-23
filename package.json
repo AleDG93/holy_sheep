@@ -7,19 +7,9 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/ashleydavis/nodejs-microservices-example.git"
+        "url": "git+https://github.com/AleDG93/holy_sheep"
     },
     "keywords": [],
     "author": "Alessandro Dal Gobbo",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/ashleydavis/nodejs-microservices-example/issues"
-    },
-    "homepage": "https://github.com/ashleydavis/nodejs-microservices-example#readme",
-    "devDependencies": {
-        "@semantic-release/changelog": "^7.0.3",
-        "@semantic-release/git": "^10.0.1",
-        "@semantic-release/npm": "^9.0.2",
-        "figit": "0.0.8"
-    }
+    "license": "ISC"
 }

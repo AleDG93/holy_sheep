@@ -24,10 +24,6 @@ jobs:
         cd commons
         npm ci
 
-    # - name: Set Project Name
-    #   id: set-project-name
-    #   run: echo "::set-output name=project_name::$(node -p 'require("./package.json").name + "-commons"')"
-
     - name: Run semantic-release in commons directory
       env:
         HOLY_SHEEP_ACCESS_TOKEN: ${{ secrets.HOLY_SHEEP_ACCESS_TOKEN }}
