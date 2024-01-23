@@ -1,0 +1,22 @@
+{
+    "name": "holy-sheep-repo",
+    "version": "1.0.0",
+    "description": "Digital verison of Holy Sheep.",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ashleydavis/nodejs-microservices-example.git"
+    },
+    "keywords": [],
+    "author": "Alessandro Dal Gobbo",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/ashleydavis/nodejs-microservices-example/issues"
+    },
+    "homepage": "https://github.com/ashleydavis/nodejs-microservices-example#readme",
+    "devDependencies": {
+        "figit": "0.0.8"
+    }
+}
