@@ -17,6 +17,9 @@
     },
     "homepage": "https://github.com/ashleydavis/nodejs-microservices-example#readme",
     "devDependencies": {
+        "@semantic-release/changelog": "^7.0.3",
+        "@semantic-release/git": "^10.0.1",
+        "@semantic-release/npm": "^9.0.2",
         "figit": "0.0.8"
     }
 }
