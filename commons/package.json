@@ -11,9 +11,13 @@
     "holy_sheep",
     "games"
   ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/",
+    "tag": "latest"
+  },
   "author": "Alessandro Dal Gobbo",
   "license": "ISC",
-  "private": false,
   "dependencies": {
     "lodash": "^4.17.21"
   },
