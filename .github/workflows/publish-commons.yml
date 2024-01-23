@@ -23,11 +23,13 @@ jobs:
       run: |
         cd commons
         npm ci
-
+        
     - name: Run semantic-release in commons directory
       env:
         HOLY_SHEEP_ACCESS_TOKEN: ${{ secrets.HOLY_SHEEP_ACCESS_TOKEN }}
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       run: |
         cd commons
+        npm login --scope=@holy-sheep --registry=https://registry.npmjs.org/
         npx semantic-release

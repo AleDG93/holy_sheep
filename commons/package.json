@@ -1,11 +1,6 @@
 {
-<<<<<<< HEAD
-  "name": "@holy-sheep/commons",
-  "version": "1.0.2",
-=======
   "name": "@adalgobbo/commons",
   "version": "1.0.1",
->>>>>>> 9f5fc06 (fix: testing workflows)
   "description": "Utility package",
   "main": "index.js",
   "scripts": {
