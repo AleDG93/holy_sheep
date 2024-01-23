@@ -22,7 +22,11 @@ jobs:
     - name: Install dependencies in commons directory
       run: |
         cd commons
-        npm i
+        npm ci
+
+    # - name: Set Project Name
+    #   id: set-project-name
+    #   run: echo "::set-output name=project_name::$(node -p 'require("./package.json").name + "-commons"')"
 
     - name: Run semantic-release in commons directory
       env:
