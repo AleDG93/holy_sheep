@@ -1,5 +1,5 @@
 {
-  "name": "commons",
+  "name": "@holy-sheep/commons",
   "version": "1.0.0",
   "description": "Utility package",
   "main": "index.js",

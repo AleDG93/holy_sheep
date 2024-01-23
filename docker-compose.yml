@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  # Client (Vue front-end)
+  client:
+    build:
+      context: ./client
+    ports:
+      - "8080:8080"
+    depends_on:
+      - connection
+      - document-manager
+
+  # Connection microservice
+  connection:
+    build:
+      context: ./services/connection
+    ports:
+      - "3000:3000"
+
+  # Document manager microservice
+  document-manager:
+    build:
+      context: ./services/documentManager
+    ports:
+      - "3001:3001"

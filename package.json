@@ -1,5 +1,5 @@
 {
-    "name": "holy-sheep-repo",
+    "name": "@holy-sheep/repo",
     "version": "1.0.0",
     "description": "Digital verison of Holy Sheep.",
     "scripts": {
