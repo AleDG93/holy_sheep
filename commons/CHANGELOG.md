@@ -1,3 +1,11 @@
+## [1.0.2](https://github.com/AleDG93/holy_sheep/compare/v1.0.1...v1.0.2) (2024-01-23)
+
+
+### Bug Fixes
+
+* testing workflows ([59df6e9](https://github.com/AleDG93/holy_sheep/commit/59df6e95311504b3457862b90fcf37354119cf7b))
+* testing workflows ([84b108a](https://github.com/AleDG93/holy_sheep/commit/84b108acb78f0f12347c2914261b67f72bebba9a))
+
 ## [1.0.1](https://github.com/AleDG93/holy_sheep/compare/v1.0.0...v1.0.1) (2024-01-23)
 
 
