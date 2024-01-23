@@ -26,7 +26,7 @@ jobs:
 
     - name: Run semantic-release in commons directory
       env:
-        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        HOLY_SHEEP_ACCESS_TOKEN: ${{ secrets.HOLY_SHEEP_ACCESS_TOKEN }}
       run: |
         cd commons
         npx semantic-release
