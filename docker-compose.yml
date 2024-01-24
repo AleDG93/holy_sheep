@@ -1,26 +1,21 @@
 version: '3'
 
 services:
-  # Client (Vue front-end)
-  client:
-    build:
-      context: ./client
-    ports:
-      - "8080:8080"
-    depends_on:
-      - connection
-      - document-manager
 
   # Connection microservice
-  connection:
+  # web-socket:
+  #   build:
+  #     context: ./services/webSocket
+  #     dockerfile: Dockerfile.development
+  #   ports:
+  #     - "3000:3000"
+  #   command: npm run start:watch # Use the "start:watch" script
+  # Database
+  mongo-db:
     build:
-      context: ./services/connection
+      context: ./services/database
+      dockerfile: Dockerfile.development
     ports:
-      - "3000:3000"
-
-  # Document manager microservice
-  document-manager:
-    build:
-      context: ./services/documentManager
-    ports:
-      - "3001:3001"
+      - "27017:27017"
+    volumes:
+      - ./data:/data/db

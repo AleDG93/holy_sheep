@@ -1,0 +1,22 @@
+# Use the official MongoDB image as the base image
+FROM mongo:latest
+
+# Set environment variables
+ENV MONGO_INITDB_ROOT_USERNAME=admin
+ENV MONGO_INITDB_ROOT_PASSWORD=adminpassword
+ENV MONGO_INITDB_DATABASE=gamedb
+
+# Copy initialization scripts to run when the container starts
+COPY ./scripts/ /docker-entrypoint-initdb.d/
+
+# Expose the default MongoDB port
+EXPOSE 27017
+
+# Optional: Set a volume to persist MongoDB data
+VOLUME /data/db
+
+# Optional: Set the working directory
+WORKDIR /usr/src/app
+
+# Start MongoDB when the container starts
+CMD ["mongod"]

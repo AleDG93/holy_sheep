@@ -1,1 +1,1 @@
-docker build -f Dockerfile.base -t my-node-base .
+docker build -f Dockerfile.base -t holy-sheep-docker-base .

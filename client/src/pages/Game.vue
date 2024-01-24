@@ -1,0 +1,213 @@
+<template>
+<div class="containerfluid main">
+    <div class="row">
+        <div class="col-8">
+            <div class="row" id="map-div">
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="row dice-body" id="heaven-dice">
+                <div class="col-12 dice">
+                    <ol class="die-list even-roll die-list-h" data-roll="1" id="hdie-1">
+                      <li class="die-item" data-side="1">
+                        <span class="dot"></span>
+                      </li>
+                      <li class="die-item" data-side="2">
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                      </li>
+                      <li class="die-item" data-side="3">
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                      </li>
+                      <li class="die-item" data-side="4">
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                      </li>
+                      <li class="die-item" data-side="5">
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                      </li>
+                      <li class="die-item" data-side="6">
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                      </li>
+                    </ol>
+                    <ol class="die-list odd-roll die-list-h" data-roll="1" id="hdie-2">
+                      <li class="die-item" data-side="1">
+                        <span class="dot"></span>
+                      </li>
+                      <li class="die-item" data-side="2">
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                      </li>
+                      <li class="die-item" data-side="3">
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                      </li>
+                      <li class="die-item" data-side="4">
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                      </li>
+                      <li class="die-item" data-side="5">
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                      </li>
+                      <li class="die-item" data-side="6">
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                      </li>
+                    </ol>
+                  </div>
+            </div>
+            <div class="row" id="heaven-roll">
+                <div class="col-12">
+                    <button class="btn btn-primary action-button" type="button" id="roll-button-heaven" onclick="requestManager('throwDice')">Roll Dice</button>    
+                </div>
+            </div>
+
+            <div class="row dice-body">
+                <div class="col-12 dice">
+                    <ol class="die-list even-roll" data-roll="1" id="die-1">
+                      <li class="die-item" data-side="1">
+                        <span class="dot"></span>
+                      </li>
+                      <li class="die-item" data-side="2">
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                      </li>
+                      <li class="die-item" data-side="3">
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                      </li>
+                      <li class="die-item" data-side="4">
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                      </li>
+                      <li class="die-item" data-side="5">
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                      </li>
+                      <li class="die-item" data-side="6">
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                      </li>
+                    </ol>
+                  </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <button class="btn btn-primary action-button" type="button" id="roll-button" onclick="requestManager('throwDie')">Roll Die</button>    
+                </div>
+            </div>
+<!--         <div class="row">
+                <div class="col-6">
+                    <button class="btn btn-outline-primary higher-lower" id="higher-button" onclick="requestManager('selectedHigher')">Higher</button>
+                </div>
+                <div class="col-6">
+                    <button class="btn btn-outline-primary higher-lower" id="lower-button" onclick="requestManager('selectedLower')">Lower</button>
+                </div>
+            </div>
+            -->
+            <div class="row">
+                <div class="col-12">
+                    <button class="btn btn-primary action-button" onclick="requestManager('drawCard')">Draw Card</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title" id="card-title"></h5>
+                            <p class="card-text" id="card-description"></p>
+                          </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <label class="management">Sheep management</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <button class="btn btn-success action-button" onclick="playHappySheep();requestManager('gainSheep')">Gain Sheep</button>
+                </div>
+                <div class="col-6">
+                    <button class="btn btn-danger action-button" onclick="playSadSheep();requestManager('loseSheep')">Lose Sheep</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <label class="management">Move</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <button class="btn btn-success action-button" onclick="requestManager('goForward')">Go Forward</button>
+                </div>
+                <div class="col-6">
+                    <button class="btn btn-danger action-button" onclick="requestManager('goBackward')">Go Backward</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <label class="management">Relationsheep</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <button class="btn btn-success action-button" onclick="requestManager('getRelationsheep')">Get Relationsheep</button>
+                </div>
+                <div class="col-6">
+                    <button class="btn btn-danger action-button" onclick="playTeoSheep();requestManager('loseRelationsheep')">Lose Relationsheep</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <label class="management">Worsheep</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <button class="btn btn-success action-button" onclick="requestManager('getWorsheep')">Get Worsheep</button>
+                </div>
+                <div class="col-6">
+                    <button class="btn btn-danger action-button" onclick="playTeoSheep();requestManager('loseWorsheep')">Lose Worsheep</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div></template>

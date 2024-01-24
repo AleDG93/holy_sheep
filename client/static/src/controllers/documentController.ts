@@ -1,5 +1,5 @@
-import { Card } from "@commons/entities/card";
-import { Heaven } from "@commons/entities/heaven";
+import { Card } from "@adalgobbo/commons/src/models/card";
+import { Heaven } from "@adalgobbo/commons/src/models/heaven";
 
 var file = require('../../cards.json');
 
