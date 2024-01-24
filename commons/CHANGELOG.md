@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/AleDG93/holy_sheep/compare/v1.0.3...v1.0.4) (2024-01-24)
+
+
+### Bug Fixes
+
+* added tsconfig to commons ([0c9a010](https://github.com/AleDG93/holy_sheep/commit/0c9a010451a1e1446eeb8152ed287c9e936dfe66))
+
 ## [1.0.3](https://github.com/AleDG93/holy_sheep/compare/v1.0.2...v1.0.3) (2024-01-23)
 
 
