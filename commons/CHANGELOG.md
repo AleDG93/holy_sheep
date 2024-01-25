@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/AleDG93/holy_sheep/compare/v1.0.4...v1.0.5) (2024-01-25)
+
+
+### Bug Fixes
+
+* added ts compile for frontend and backend ([7ef7001](https://github.com/AleDG93/holy_sheep/commit/7ef7001f2cdb1437627bc06cfa5c1a8e9bb0b12b))
+
 ## [1.0.4](https://github.com/AleDG93/holy_sheep/compare/v1.0.3...v1.0.4) (2024-01-24)
 
 
