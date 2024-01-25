@@ -1,3 +1,13 @@
+<script setup lang="ts">
+import { socket } from "@/socket";
+
+function connect() {
+  socket.connect();
+}
+function disconnect() {
+  socket.disconnect();
+}
+</script>
 <template>
 <div>
     
@@ -9,7 +19,10 @@
         <button>Join / Create game</button>
     </form>
     
+  <button @click="connect()">Connect</button>
+  <button @click="disconnect()">Disconnect</button>
     <h1><span class="wave">👋</span></h1>
+    <ConnectionState />
 </div>
 </template>
 <style>

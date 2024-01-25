@@ -14,9 +14,10 @@
   "author": "Alessandro Dal Gobbo",
   "license": "ISC",
   "dependencies": {
-    "@adalgobbo/commons": "1.0.3",
+    "@adalgobbo/commons": "^1.0.5",
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.2",
+    "socket.io-client": "^4.7.4",
     "vue": "^3.4.15"
   },
   "devDependencies": {

@@ -2,20 +2,41 @@ version: '3'
 
 services:
 
-  # Connection microservice
-  # web-socket:
-  #   build:
-  #     context: ./services/webSocket
-  #     dockerfile: Dockerfile.development
-  #   ports:
-  #     - "3000:3000"
-  #   command: npm run start:watch # Use the "start:watch" script
-  # Database
-  mongo-db:
+  # Database 1
+  mongo-db-1:
+    container_name: mongo-db-1
     build:
       context: ./services/database
       dockerfile: Dockerfile.development
     ports:
       - "27017:27017"
     volumes:
-      - ./data:/data/db
+      - ./data/db1:/data/db
+    networks:
+      app_subnet:
+        ipv4_address: 172.10.0.11
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+  # Connection microservice
+  engine:
+    container_name: engine
+    build:
+      context: ./services/engine
+      dockerfile: Dockerfile.development
+    volumes:
+      - ./services/engine/src:/usr/src/app/src
+    ports:
+      - "3000:3000"
+      - "8080:8080"
+    command: npm run dev # Use the "start:watch" script
+    depends_on:
+      - mongo-db-1
+    networks:
+      app_subnet:
+        ipv4_address: 172.10.0.10
+networks:
+  app_subnet:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.10.0.0/24
