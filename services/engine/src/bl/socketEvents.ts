@@ -1,4 +1,9 @@
-import { SocketEvent } from "./GameEngine";
+import { Server } from "socket.io";
+
+export interface SocketEvent {
+    eventName: string;
+    fn: (socket?: Server, data?: any) => void;
+}
 
 const err: SocketEvent = {
     eventName: "error",
@@ -27,8 +32,8 @@ const emit: SocketEvent = {
 
 const disconnect: SocketEvent = {
     eventName: "disconnect",
-    fn: () => {
-        console.log("user disconnected!")
+    fn: (socket) => {
+        socket?.close();
     }
 }
 

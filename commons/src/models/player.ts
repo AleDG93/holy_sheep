@@ -1,19 +1,15 @@
-export class Player {
-    id: number;
-    name: string;
-    numOfSheep: number;
-    position: any;
-    gadget: any[];
-    heaven: number;
-    win: boolean;
+import { Socket } from "socket.io";
 
-    constructor(id: number, name: string, numOfSheep: number, position: any, gadget: any[]) {
+export class Player {
+    id: string;
+    nickname: string;
+    status: string;
+    socket: Socket;
+
+    constructor(id: string, nickname: string, status: string, socket: Socket) {
         this.id = id;
-        this.name = name;
-        this.numOfSheep = numOfSheep;
-        this.position = position;
-        this.gadget = gadget;
-        this.heaven = 0;
-        this.win = false;
+        this.status = status;
+        this.nickname = nickname;
+        this.socket = socket;
     }
 }

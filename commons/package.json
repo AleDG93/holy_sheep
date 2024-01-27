@@ -20,7 +20,8 @@
   "author": "Alessandro Dal Gobbo",
   "license": "ISC",
   "dependencies": {
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "socket.io": "^4.7.4"
   },
   "homepage": "https://github.com/AleDG93/holy_sheep",
   "devDependencies": {

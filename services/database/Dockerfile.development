@@ -9,7 +9,6 @@ ENV MONGO_INITDB_DATABASE=holy_sheep_db
 # Copy initialization scripts to run when the container starts
 COPY ./scripts/ /docker-entrypoint-initdb.d/
 
-
 # Copy the custom mongod.conf to the container's configuration directory
 COPY mongod.conf /etc/mongod.conf
 

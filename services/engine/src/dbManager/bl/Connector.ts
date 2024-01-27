@@ -40,7 +40,6 @@ export class Connector {
         }
         const collection = this.getCollection<Game>(collectionName);
         return new Streamer(collection);
-        //        streamer.setupStreamActions(gameLogic);
     }
 
     getCollection<Game extends Document>(collectionName: string): Collection<Game> {
@@ -49,7 +48,7 @@ export class Connector {
 
     async insertDocument<Game extends Document>(collectionName: string, document: any): Promise<InsertOneResult<any>> {
         const collection = this.getCollection<Game>(collectionName);
-        return collection.insertOne(document);
+        return await collection.insertOne(document);
     }
 
     async findDocuments<Game extends Document>(collectionName: string, query: any = {}): Promise<WithId<Game>[]> {

@@ -1,79 +1,84 @@
-import { Server } from "http";
+import { Socket } from "socket.io";
+import { Streamer } from "../dbManager";
+import { SocketEvent, events } from "./socketEvents";
 import _ from "lodash";
-import { Server as SocketServer } from "socket.io";
-import { Connector, MongoConfig, Streamer } from "../dbManager";
-import { GameMaster, GameTypes } from "./GameMaster";
-
-export interface SocketEvent {
-    eventName: string;
-    fn: (socket?: SocketServer, data?: any) => void;
-}
-
-export interface StreamerEvent {
-    eventName: string;
-    fn: (streamer?: Streamer, data?: any) => void;
-}
-
-const config: MongoConfig = {
-    username: process.env.MONGO_USER || "admin",
-    password: process.env.MONGO_PASSWORD || "adminpassword",
-    addresses: [
-        {
-            address: process.env.MONGO_ADDRESS_1 || "mongo-db-1",
-            port: process.env.MONGO_PORT_1 || "27017",
-        },
-        // {
-        //     address: process.env.MONGO_ADDRESS_2 || "172.10.0.12",
-        //     port: process.env.MONGO_PORT_2 || "27017",
-        // },
-        // {
-        //     address: process.env.MONGO_ADDRESS_3 || "172.10.0.13",
-        //     port: process.env.MONGO_PORT_3 || "27017",
-        // }
-    ],
-    dbName: process.env.MONGO_DB_NAME || "holy_sheep_db"
-}
+import { Player } from "../../../../commons/src/models/player";
+import { Game } from "../models/Game";
+import { ChangeStreamDocument, Document } from "mongodb";
 
 export class GameEngine {
 
-    private socket: SocketServer;
-    private connector: Connector;
-    private gameMasters: GameMaster[];
-    constructor(server: Server) {
+    streamer: Streamer;
+    game!: Game;
+    gameId: string;
+    players: Player[]
 
-        this.connector = new Connector(config);
-        this.socket = new SocketServer(server,
-            {
-                cors: {
-                    origin: "http://localhost:5173"
-                }
-            }
-        );
-        this.gameMasters = [];
+    constructor(gameId: string, streamer: Streamer) {
+        this.gameId = gameId;
+        this.players = [];
+        this.streamer = streamer;
     }
 
-    public async start() {
-        await this.connector.connect();
+    public setupStream(streamer: Streamer) {
+        this.streamer = streamer;
     }
 
-    public async open(gameRoom: string) {
-        await this.createGame(gameRoom);
+    public setupGame(game: Game) {
+        this.game = game;
+        const engine = this;
+        // Setup socket events 
+        this.streamer.server.on('connection', function (ws: Socket) {
+            console.log("Connected");
+            engine.players.push({ ws: ws } as unknown as Player & { ws: Socket })
+            engine.registerScoketEvents(ws, events);
+        });
+        // Setup events occurring at files changes
+        this.streamer.changeStream.on("change", next => {
+            this.interpret(next)
+        })
     }
 
-    public async createGame(gameRoom: string) {
-        const streamer = this.connector.getStreamer(gameRoom);
-        streamer.attachServer(this.socket);
-        const gameMaster = new GameMaster(streamer, GameTypes.HOLY_SHEEP, gameRoom);
-        gameMaster.setup()
-        this.gameMasters.push(gameMaster);
+    public registerPlayer(player: Player) {
+        const existingPlayer = _.find(this.players, (p: Player) => p.id == player.id);
+        if (!existingPlayer) {
+            this.players.push(player);
+        }
+        this.game
     }
 
-    // public action(gameRoom: string, gameAction: string) {
-    //     // const mast = _.find(this.gameMasters, (gm: GameMaster) => gm.gameRoom == gameRoom);
-    //     // mast?.setup(gameAction);
-    // }
+    public deregisterPlayer(playerId: string) {
+        const index = _.findIndex(this.players, (p: Player) => p.id == playerId);
+        if (index == -1) {
+            return;
+        }
+        this.players.splice(index, 1);
+    }
 
-    public close() {
-        this.socket.close();
+    private interpret(operation: ChangeStreamDocument<Document>) {
+
+        /**
+         * According to game rules setup broadcast conent
+        */
+        switch (operation.operationType) {
+            case 'insert':
+                this.broadcast('foo', operation.fullDocument)
+                console.log("HERE IN INSERT")
+                break;
+
+            case 'update':
+                console.log("HERE IN UPDATE")
+                this.broadcast('bar', operation.updateDescription);
+        }
+
+    }
+
+    private broadcast(ev: string, data: any) {
+        _.forEach(this.players, (player: Player) => player.socket.emit(ev, data))
+    }
+
+    private registerScoketEvents(socket: Socket, events: SocketEvent[]) {
+        _.forEach(events, (e: SocketEvent) => {
+            socket.on(e.eventName, e.fn);
+        })
     }
 }

@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
-import { gameEngine } from "../../index";
+import { gameServer } from "../../index";
 import { Connector, MongoConfig } from "../../dbManager";
+import { Game } from "../../models/Game";
 
 const config: MongoConfig = {
     username: process.env.MONGO_USER || "admin",
@@ -23,7 +24,7 @@ const config: MongoConfig = {
 }
 export const PostGame = async (_: Request<{ gameName: string }, any, any, any>, response: Response<any>) => {
 
-    await gameEngine.createGame("gamedb");
+    await gameServer.createGame("gamedb", new Game("f"));
 
     // const connector = new Connector(config);
     // await connector.connect();
@@ -48,7 +49,7 @@ export const PostGame = async (_: Request<{ gameName: string }, any, any, any>, 
 
 export const PostGameAction = async (_: Request<{ gameName: string }, any, any, any>, response: Response<any>) => {
 
-    await gameEngine.createGame("gamedb");
+    gameServer.createGame("gamedb", new Game("f"));
     const connector = new Connector(config);
     await connector.connect();
     await connector.insertDocument("gamedb", {
